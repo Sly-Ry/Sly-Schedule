@@ -1,7 +1,54 @@
-var hour = ["9", "10", "11", "12", "1", "2", "3", "4", "5"];
+// variable section
+var hour = [
+    { 
+        average: "9",
+        convert: 09
+    },
+    {
+        average: "10",
+        convert: 10
+    },
+    {
+        average: "11",
+        convert: 11
+    },
+    {
+        average: "12",
+        convert: 12
+    },
+    {
+        average: "1",
+        convert: 13
+    },
+    {
+        average: "2",
+        convert: 14
+    },
+    {
+        average: "3",
+        convert: 15
+    },
+    {
+        average: "4",
+        convert: 16
+    },
+    { 
+        average: "5", 
+        convert: 17
+    }
+];
+     
+var today = new Date(); 
+
+var date = (today.getMonth()+1) +'-'+ today.getDate() + '-' + today.getFullYear();
+
+var currentTime = today.getHours("HH");
+console.log(currentTime);
+
 
 var containerEl = document.querySelector(".container");
 
+$("#currentDay").append(date);
 
 var fillContainer = function() {
     for(i = 0; i < hour.length; i++) {
@@ -17,14 +64,14 @@ var fillContainer = function() {
         timeBlock.classList = "time-block col-2";
         divRow.appendChild(timeBlock);
         
-        var hourSlot = document.createElement("p");
+        var hourSlot = document.createElement("h5");
         hourSlot.classList = "hour";
         hourSlot.id = "hourSlot";
-        if (hour[i] > 8 && hour[i] < 12) {
-            hourSlot.textContent = hour[i] + " AM";
+        if (hour[i].average > 8 && hour[i].average < 12) {
+            hourSlot.textContent = hour[i].average + " AM";
         }
         else {
-            hourSlot.textContent = hour[i] + " PM";
+            hourSlot.textContent = hour[i].average + " PM";
         }
         timeBlock.appendChild(hourSlot);
 
@@ -45,22 +92,11 @@ var fillContainer = function() {
         saveBtn.innerHTML = "<i class='far fa-save'></i>";
         btnSlot.append(saveBtn);
 
-        
+        if()
 
     }
+
     
 };
 
-
-
-var today = new Date();
-var date = (today.getMonth()+1) +'-'+ today.getDate() + '-' + today.getFullYear();
-
-$("#currentDay").append(date);
-
-var timeDay = function() {
-    console.log(today);
-}
-
-timeDay();
-fillContainer(); 
+fillContainer();
