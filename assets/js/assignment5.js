@@ -57,7 +57,6 @@ var fillContainer = function() {
         divRow.classList = "row d-flex flex-row";
         divRow.id = "divRow";
         containerEl.appendChild(divRow);
-        console.log(divRow);
 
         // timeblock element
         var timeBlock = document.createElement("div");
@@ -92,11 +91,16 @@ var fillContainer = function() {
         saveBtn.innerHTML = "<i class='far fa-save'></i>";
         btnSlot.append(saveBtn);
 
-        if()
-
+        if(currentTime === hour[i].convert) {
+            textArea.classList = "present col-9" 
+        }
+        else if(currentTime > hour[i].convert) {
+            textArea.classList = "past col-9" 
+        }
+        else if(currentTime < hour[i].convert) {
+            textArea.classList = "future col-9" 
+        }
     }
-
-    
 };
 
 fillContainer();
